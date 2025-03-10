@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { AlertTriangle, Code2, DollarSign, Zap } from 'lucide-react';
+import { AlertTriangle, Code2, DollarSign, Zap, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const FoundersStory = () => {
@@ -52,12 +52,20 @@ const FoundersStory = () => {
             </div>
           </div>
           
-          <div className="text-center">
+          <div className="text-center space-y-4">
             <Button 
               className="bg-[#FF6200] hover:bg-[#E55A00] text-white px-8 py-6 h-auto rounded-lg text-lg font-bold"
             >
-              <Zap className="mr-2" /> 🚀 Book a Free Strategy Call
+              <Zap className="mr-2" /> 🚀 Get a Free Strategy Call—No Pressure, Just Insights
             </Button>
+            <div>
+              <Button 
+                variant="outline" 
+                className="text-[#343A40] border-[#343A40]/20 hover:bg-[#343A40]/5"
+              >
+                <Download className="mr-2" /> 💡 Not Ready Yet? Download Our Free AI MVP Planning Guide
+              </Button>
+            </div>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 
-import { ArrowRight, Search, Code2, Rocket } from 'lucide-react';
+import { ArrowRight, Search, Code2, Rocket, Download } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
@@ -52,11 +52,26 @@ const ServicesSection = () => {
           ))}
         </div>
         
-        <div className="mt-16 text-center">
+        <div className="mt-16 text-center space-y-4">
           <Button variant="outline" className="border-sonic-200 text-foreground hover:bg-sonic-50">
             View All Services
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
+          <div>
+            <Button 
+              className="bg-sonic-600 hover:bg-sonic-700 text-white"
+            >
+              <Rocket className="mr-2" /> 🚀 Get a Free Strategy Call—No Pressure, Just Insights
+            </Button>
+          </div>
+          <div>
+            <Button 
+              variant="outline" 
+              className="text-[#343A40] border-[#343A40]/20 hover:bg-[#343A40]/5"
+            >
+              <Download className="mr-2" /> 💡 Not Ready Yet? Download Our Free AI MVP Planning Guide
+            </Button>
+          </div>
         </div>
       </div>
     </section>

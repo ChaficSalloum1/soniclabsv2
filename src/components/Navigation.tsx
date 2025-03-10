@@ -1,8 +1,7 @@
-
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const navLinks = [
@@ -58,7 +57,7 @@ export const Navigation = () => {
               </Link>
             ))}
             <Button className="bg-sonic-600 hover:bg-sonic-700 text-white">
-              Get Started
+              🚀 Get a Free Strategy Call
             </Button>
           </nav>
 
@@ -92,7 +91,7 @@ export const Navigation = () => {
             </Link>
           ))}
           <Button className="mt-4 bg-sonic-600 hover:bg-sonic-700 text-white w-full">
-            Get Started
+            🚀 Get a Free Strategy Call
           </Button>
         </div>
       </div>
