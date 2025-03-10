@@ -1,6 +1,7 @@
 
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/home/HeroSection';
+import TrustSection from '@/components/home/TrustSection';
 import ServicesSection from '@/components/home/ServicesSection';
 import CallToAction from '@/components/home/CallToAction';
 import Footer from '@/components/Footer';
@@ -16,6 +17,9 @@ const Index = () => {
       
       {/* Hero Section */}
       <HeroSection />
+      
+      {/* Trust Section */}
+      <TrustSection />
       
       {/* Services Section */}
       <ServicesSection />
