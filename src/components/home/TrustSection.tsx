@@ -1,9 +1,8 @@
 
 import { 
-  Code2, 
-  AlertTriangle, 
+  Rocket, 
   DollarSign, 
-  Timer,
+  Brain,
   Target,
   Download
 } from 'lucide-react';
@@ -13,46 +12,44 @@ const TrustSection = () => {
   return (
     <section className="py-20 bg-white relative">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="section-title text-[#0047AB] mb-10 text-center">
-            Why So Many Founders Struggle to Launch
+        <div className="max-w-5xl mx-auto">
+          <h2 className="section-title text-[#0047AB] mb-12 text-center">
+            Why Founders Choose SonicLabs
           </h2>
           
-          <div className="space-y-6 mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
               {
-                icon: <Code2 className="text-[#FF6200]" />,
-                text: "No-code tools are great—until they aren't. They break when you need real functionality."
+                icon: <Rocket className="h-10 w-10 text-[#FF6200]" />,
+                title: "10X Faster Than Traditional Dev Agencies",
+                description: "AI-powered efficiency, expert-built quality."
               },
               {
-                icon: <AlertTriangle className="text-[#FF6200]" />,
-                text: "Freelancers seemed like an affordable option—until deadlines got missed, communication broke down, and the work wasn't what you expected."
+                icon: <DollarSign className="h-10 w-10 text-[#FF6200]" />,
+                title: "No $20K+ Upfront Costs",
+                description: "Transparent pricing, milestone-based payments."
               },
               {
-                icon: <DollarSign className="text-[#FF6200]" />,
-                text: "Agencies varied wildly. Some charged $20K+ upfront, while others refused small projects or took weeks just to reply."
-              },
-              {
-                icon: <Timer className="text-[#FF6200]" />,
-                text: "Worst of all? Every time something failed, you had to start over. Weeks of lost progress. Wasted time. More stress."
+                icon: <Brain className="h-10 w-10 text-[#FF6200]" />,
+                title: "Founder-Friendly Development",
+                description: "We guide you every step of the way."
               }
             ].map((point, index) => (
-              <div key={index} className="flex items-start p-4 bg-sonic-50 rounded-lg shadow-sm">
-                <span className="mr-4 mt-1">
+              <div key={index} className="flex flex-col items-center text-center">
+                <div className="mb-6 p-4 bg-sonic-50 rounded-full">
                   {point.icon}
-                </span>
-                <p className="font-semibold text-[#343A40]">{point.text}</p>
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-[#343A40]">
+                  {point.title}
+                </h3>
+                <p className="text-muted-foreground">
+                  {point.description}
+                </p>
               </div>
             ))}
           </div>
           
-          <div className="bg-sonic-100 p-6 rounded-xl border-l-4 border-[#0047AB] mb-10">
-            <h3 className="text-xl font-semibold text-[#343A40] mb-3">
-              💡 That's why we built SonicLabs. We've lived through the pain of hiring the wrong teams, fighting with broken tech, and feeling like progress was slipping away. We're here to make sure it doesn't happen to you.
-            </h3>
-          </div>
-          
-          <div className="text-center space-y-4">
+          <div className="mt-16 text-center space-y-4">
             <Button 
               className="bg-[#FF6200] hover:bg-[#E55A00] text-white px-8 py-6 h-auto rounded-lg text-lg font-bold"
             >
