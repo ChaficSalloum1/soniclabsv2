@@ -6,29 +6,42 @@ import {
   Zap, 
   BarChart3, 
   Lightbulb,
-  ExternalLink
+  ExternalLink,
+  Clock,
+  AlertTriangle,
+  MessageSquareX,
+  CheckCircle,
+  Rocket,
+  Smile
 } from 'lucide-react';
 
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [showAfterState, setShowAfterState] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
+    // Add transition between before and after states
+    const interval = setInterval(() => {
+      setShowAfterState(prev => !prev);
+    }, 5000); // Toggle every 5 seconds
+    
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="pt-32 pb-16 md:pt-48 md:pb-24 relative overflow-hidden">
+    <section className="pt-32 pb-16 md:pt-40 md:pb-24 relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid-12">
-          <div className="col-span-12 md:col-span-7 space-y-10">
+          <div className="col-span-12 md:col-span-6 space-y-8">
             <div className={`transition-all duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0 translate-y-10'}`}>
-              <div className="inline-flex items-center rounded-full border border-sonic-500/20 bg-sonic-50 px-3 py-1 text-sm font-medium text-sonic-800 mb-8">
+              <div className="inline-flex items-center rounded-full border border-sonic-500/20 bg-sonic-50 px-3 py-1 text-sm font-medium text-sonic-800 mb-6">
                 <Zap size={14} className="mr-1 text-sonic-600" /> AI-Powered MVP Development
               </div>
-              <h1 className="hero-text text-balance mb-8 text-[#0047AB] leading-tight">
+              <h1 className="hero-text text-balance mb-6 text-[#0047AB] leading-tight">
                 SonicLabs: The Expert Team That Won't Let You Drown.
               </h1>
-              <h2 className="text-xl font-medium text-[#343A40] max-w-xl mb-12">
+              <h2 className="text-xl font-medium text-[#343A40] max-w-xl mb-10">
                 Tired of wasted time, failed projects, and dev nightmares? We fix that—fast.
               </h2>
 
@@ -51,18 +64,77 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <div className="col-span-12 md:col-span-5 flex justify-center items-start mt-12 md:mt-0">
-            <div className={`relative transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100' : 'opacity-0 translate-y-10'}`}>
-              <div className="relative w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] bg-gradient-to-tr from-[#0047AB] to-[#3A8DFF] rounded-full opacity-20 animate-pulse-light"></div>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] bg-gradient-to-br from-[#0047AB] to-[#3A8DFF] rounded-full opacity-40"></div>
-              <div className="absolute top-0 right-8 w-24 h-24 bg-white/90 backdrop-blur rounded-lg shadow-lg p-4 animate-float">
-                <Code2 className="h-full w-full text-[#0047AB]" />
-              </div>
-              <div className="absolute bottom-10 left-0 w-20 h-20 bg-white/90 backdrop-blur rounded-lg shadow-lg p-3 animate-float" style={{ animationDelay: '1s' }}>
-                <BarChart3 className="h-full w-full text-[#0047AB]" />
-              </div>
-              <div className="absolute top-1/4 left-10 w-16 h-16 bg-white/90 backdrop-blur rounded-lg shadow-lg p-3 animate-float" style={{ animationDelay: '2s' }}>
-                <Lightbulb className="h-full w-full text-[#FF6200]" />
+          <div className="col-span-12 md:col-span-6 flex justify-center items-start mt-12 md:mt-0">
+            <div className={`relative w-full h-[400px] transition-all duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0 translate-y-10'}`}>
+              {/* Split design container */}
+              <div className="w-full h-full relative rounded-xl overflow-hidden shadow-lg border border-gray-100">
+                {/* "Before" state - Chaos */}
+                <div className={`absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 p-6 transition-opacity duration-1000 ease-in-out ${showAfterState ? 'opacity-0' : 'opacity-100'}`}>
+                  <div className="relative w-full h-full">
+                    {/* Visual elements of chaos */}
+                    <div className="absolute top-4 left-4 bg-white p-4 rounded-lg shadow-md border border-red-200 flex items-center animate-float">
+                      <Clock className="text-red-500 mr-2" size={20} />
+                      <span className="text-sm font-medium text-gray-700">Deadline approaching!</span>
+                    </div>
+                    
+                    <div className="absolute top-1/3 right-6 bg-white p-4 rounded-lg shadow-md border border-red-200 flex items-center animate-float" style={{ animationDelay: '1s' }}>
+                      <AlertTriangle className="text-red-500 mr-2" size={20} />
+                      <span className="text-sm font-medium text-gray-700">Build failed: 23 errors</span>
+                    </div>
+                    
+                    <div className="absolute bottom-12 left-8 bg-white p-4 rounded-lg shadow-md border border-red-200 flex items-center animate-float" style={{ animationDelay: '1.5s' }}>
+                      <MessageSquareX className="text-red-500 mr-2" size={20} />
+                      <span className="text-sm font-medium text-gray-700">Freelancer: "Sorry, I quit."</span>
+                    </div>
+                    
+                    <div className="absolute top-1/2 left-1/4 bg-white p-4 rounded-lg shadow-md border border-red-200 animate-float" style={{ animationDelay: '0.7s' }}>
+                      <div className="text-sm font-medium text-gray-700 text-center mb-2">Agency Quote:</div>
+                      <div className="text-lg font-bold text-red-500 text-center">$24,500 upfront</div>
+                    </div>
+                    
+                    {/* Stressed founder illustration */}
+                    <div className="absolute bottom-0 right-0 w-24 h-24 bg-white/90 rounded-full flex items-center justify-center">
+                      <div className="text-3xl animate-pulse">😰</div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* "After" state - Clarity */}
+                <div className={`absolute inset-0 bg-gradient-to-br from-blue-50 to-white p-6 transition-opacity duration-1000 ease-in-out ${showAfterState ? 'opacity-100' : 'opacity-0'}`}>
+                  <div className="relative w-full h-full">
+                    {/* Visual elements of success */}
+                    <div className="absolute top-4 left-4 bg-white p-4 rounded-lg shadow-md border border-green-200 flex items-center animate-float">
+                      <CheckCircle className="text-green-500 mr-2" size={20} />
+                      <span className="text-sm font-medium text-gray-700">MVP launched on schedule!</span>
+                    </div>
+                    
+                    <div className="absolute top-1/3 right-6 bg-white p-4 rounded-lg shadow-md border border-blue-200 flex items-center animate-float" style={{ animationDelay: '0.5s' }}>
+                      <BarChart3 className="text-blue-500 mr-2" size={20} />
+                      <span className="text-sm font-medium text-gray-700">User growth +32%</span>
+                    </div>
+                    
+                    <div className="absolute bottom-12 left-8 bg-white p-4 rounded-lg shadow-md border border-blue-200 flex items-center animate-float" style={{ animationDelay: '1s' }}>
+                      <Rocket className="text-blue-500 mr-2" size={20} />
+                      <span className="text-sm font-medium text-gray-700">Ready for investor demo</span>
+                    </div>
+                    
+                    <div className="absolute top-1/2 left-1/4 bg-white p-4 rounded-lg shadow-md border border-green-200 animate-float" style={{ animationDelay: '1.3s' }}>
+                      <div className="text-sm font-medium text-gray-700 text-center mb-2">SonicLabs:</div>
+                      <div className="text-lg font-bold text-green-500 text-center">Milestone payments</div>
+                    </div>
+                    
+                    {/* Happy founder illustration */}
+                    <div className="absolute bottom-0 right-0 w-24 h-24 bg-white/90 rounded-full flex items-center justify-center">
+                      <div className="text-3xl animate-pulse-light">😄</div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Transition indicator */}
+                <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                  <div className={`w-2 h-2 rounded-full transition-colors duration-500 ${!showAfterState ? 'bg-blue-500' : 'bg-gray-300'}`}></div>
+                  <div className={`w-2 h-2 rounded-full transition-colors duration-500 ${showAfterState ? 'bg-blue-500' : 'bg-gray-300'}`}></div>
+                </div>
               </div>
             </div>
           </div>
