@@ -1,6 +1,7 @@
 
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/home/HeroSection';
+import WhyFoundersStruggle from '@/components/home/WhyFoundersStruggle';
 import TrustSection from '@/components/home/TrustSection';
 import FoundersStory from '@/components/home/FoundersStory';
 import AdvantagesSection from '@/components/home/AdvantagesSection';
@@ -19,6 +20,9 @@ const Index = () => {
       
       {/* Hero Section */}
       <HeroSection />
+      
+      {/* Why Founders Struggle Section */}
+      <WhyFoundersStruggle />
       
       {/* Trust Section */}
       <TrustSection />
