@@ -30,25 +30,30 @@ const HeroSection = () => {
               <h1 className="hero-text text-balance mb-6 text-[#0047AB]">
                 SonicLabs: The Expert Team That Won't Let You Drown.
               </h1>
-              <p className="text-xl text-[#343A40] max-w-xl mb-8">
-                You had a vision. You set out to build something game-changing. But somewhere along the way, it got harder than expected.
-              </p>
+              <h2 className="text-xl font-medium text-[#343A40] max-w-xl mb-8">
+                Tired of wasted time, failed projects, and dev nightmares? We fix that—fast.
+              </h2>
 
               {/* Bullet Frustrations */}
               <ul className="space-y-4 mb-8">
-                {[
-                  { icon: <Code2 className="text-[#FF6200]" />, text: "No-code tools hit a wall." },
-                  { icon: <AlertTriangle className="text-[#FF6200]" />, text: "Freelancers overpromised and underdelivered." },
-                  { icon: <DollarSign className="text-[#FF6200]" />, text: "Agencies quoted $20K+—before even getting started." },
-                  { icon: <Timer className="text-[#FF6200]" />, text: "Your runway is shrinking, and you're running out of time." }
-                ].map((item, index) => (
-                  <li key={index} className="flex items-start">
-                    <span className="mr-3 mt-1">
-                      {item.icon}
-                    </span>
-                    <span className="font-semibold text-[#343A40]">{item.text}</span>
-                  </li>
-                ))}
+                <li className="flex items-start">
+                  <span className="mr-3 mt-1">
+                    <Code2 className="text-[#FF6200]" />
+                  </span>
+                  <span className="font-semibold text-[#343A40]">🚧 No-code tools breaking when you need custom features.</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-3 mt-1">
+                    <AlertTriangle className="text-[#FF6200]" />
+                  </span>
+                  <span className="font-semibold text-[#343A40]">🚧 Freelancers disappearing halfway through the project.</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-3 mt-1">
+                    <DollarSign className="text-[#FF6200]" />
+                  </span>
+                  <span className="font-semibold text-[#343A40]">🚧 Agencies demanding $20K+ upfront before even starting.</span>
+                </li>
               </ul>
 
               <div className="flex flex-col space-y-4">
@@ -58,7 +63,7 @@ const HeroSection = () => {
                   🚀 Get a Free Strategy Call—No Pressure, Just Insights
                 </Button>
                 <p className="text-sm text-muted-foreground">
-                  💡 No commitment. Just expert guidance on your MVP.
+                  💡 No commitment—just expert guidance on your MVP.
                 </p>
               </div>
             </div>
