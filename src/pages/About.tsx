@@ -1,5 +1,6 @@
 
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 const About = () => {
   return (
@@ -11,6 +12,7 @@ const About = () => {
           Coming soon: Learn about our approach and what makes SonicLabs different.
         </p>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 const Contact = () => {
   return (
@@ -11,6 +12,7 @@ const Contact = () => {
           Coming soon: Get in touch with our team to discuss your project.
         </p>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 const Pricing = () => {
   return (
@@ -11,6 +12,7 @@ const Pricing = () => {
           Coming soon: Transparent pricing for our development services.
         </p>
       </div>
+      <Footer />
     </div>
   );
 };
