@@ -127,6 +127,10 @@
   .text-balance {
     text-wrap: balance;
   }
+  
+  .section-transition {
+    @apply py-16 transition-opacity duration-500 ease-in-out;
+  }
 }
 
 /* 12-column grid system */
@@ -145,5 +149,62 @@
 @media (min-width: 641px) and (max-width: 1024px) {
   .grid-12 {
     grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+}
+
+/* Custom animations */
+@keyframes float-slow {
+  0%, 100% { transform: translate(0, 0) rotate(-3deg); }
+  50% { transform: translate(0, -10px) rotate(-2deg); }
+}
+
+@keyframes float-slow-reverse {
+  0%, 100% { transform: translate(0, 0) rotate(3deg); }
+  50% { transform: translate(0, -10px) rotate(2deg); }
+}
+
+@keyframes float-medium {
+  0%, 100% { transform: translate(0, 0) rotate(-2deg); }
+  50% { transform: translate(0, -8px) rotate(-1deg); }
+}
+
+@keyframes float-medium-reverse {
+  0%, 100% { transform: translate(0, 0) rotate(2deg); }
+  50% { transform: translate(0, -8px) rotate(1deg); }
+}
+
+@keyframes bg-position-x {
+  0% { background-position-x: 0%; }
+  100% { background-position-x: 100%; }
+}
+
+@layer utilities {
+  .animate-float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+  }
+  
+  .animate-float-slow-reverse {
+    animation: float-slow-reverse 6s ease-in-out infinite;
+  }
+  
+  .animate-float-medium {
+    animation: float-medium 4s ease-in-out infinite;
+  }
+  
+  .animate-float-medium-reverse {
+    animation: float-medium-reverse 4s ease-in-out infinite;
+  }
+  
+  .bg-size-200 {
+    background-size: 200% auto;
+  }
+  
+  .animate-bg-position-x {
+    animation: bg-position-x 3s infinite alternate;
+  }
+  
+  /* Glassmorphism utility */
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/5 border border-white/10;
   }
 }

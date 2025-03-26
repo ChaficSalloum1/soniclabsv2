@@ -1,4 +1,5 @@
 
+import { useRef } from 'react';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/home/HeroSection';
 import WhyFoundersStruggle from '@/components/home/WhyFoundersStruggle';
@@ -10,32 +11,63 @@ import CallToAction from '@/components/home/CallToAction';
 import Footer from '@/components/Footer';
 
 const Index = () => {
+  // Create refs for each section to enable smooth scrolling
+  const heroRef = useRef<HTMLDivElement>(null);
+  const whyFoundersRef = useRef<HTMLDivElement>(null);
+  const trustRef = useRef<HTMLDivElement>(null);
+  const storyRef = useRef<HTMLDivElement>(null);
+  const servicesRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+  
+  // Function to scroll to a section smoothly
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <div className="relative min-h-screen bg-black text-white">
-      {/* Navigation */}
-      <Navigation />
+    <div className="relative bg-gradient-to-b from-black to-sonic-950 text-white">
+      {/* Navigation with scroll functions */}
+      <Navigation 
+        onNavigate={{
+          whyFounders: () => scrollToSection(whyFoundersRef),
+          trust: () => scrollToSection(trustRef),
+          story: () => scrollToSection(storyRef),
+          services: () => scrollToSection(servicesRef),
+          contact: () => scrollToSection(contactRef),
+        }}
+      />
       
       {/* Hero Section */}
-      <HeroSection />
+      <div ref={heroRef}>
+        <HeroSection />
+      </div>
       
-      <div>
+      {/* Main Content Sections */}
+      <div className="relative z-10">
         {/* Why Founders Struggle Section */}
-        <WhyFoundersStruggle />
+        <div ref={whyFoundersRef} className="section-transition">
+          <WhyFoundersStruggle />
+        </div>
         
         {/* Trust Section */}
-        <TrustSection />
+        <div ref={trustRef} className="section-transition">
+          <TrustSection />
+        </div>
         
         {/* Founder's Story Section */}
-        <FoundersStory />
-        
-        {/* Advantages Section */}
-        <AdvantagesSection />
+        <div ref={storyRef} className="section-transition">
+          <FoundersStory />
+        </div>
         
         {/* Services Section */}
-        <ServicesSection />
+        <div ref={servicesRef} className="section-transition">
+          <ServicesSection />
+        </div>
         
         {/* Call to Action */}
-        <CallToAction />
+        <div ref={contactRef} className="section-transition">
+          <CallToAction />
+        </div>
       </div>
       
       {/* Footer */}
