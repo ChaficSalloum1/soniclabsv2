@@ -11,14 +11,14 @@ import Footer from '@/components/Footer';
 
 const Index = () => {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen bg-black text-white">
       {/* Navigation */}
       <Navigation />
       
       {/* Hero Section */}
       <HeroSection />
       
-      <div className="bg-background">
+      <div>
         {/* Why Founders Struggle Section */}
         <WhyFoundersStruggle />
         
